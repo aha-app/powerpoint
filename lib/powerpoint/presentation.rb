@@ -45,6 +45,11 @@ module Powerpoint
         # Copy template to temp path
         FileUtils.copy_entry(TEMPLATE_PATH, extract_path)
 
+        # Remove keep files
+        Dir.glob("#{extract_path}/**/.keep").each do |keep_file|
+          FileUtils.rm_rf(keep_file)
+        end
+
         # Render/save generic stuff
         render_view('content_type.xml.erb', "#{extract_path}/[Content_Types].xml")
         render_view('presentation.xml.rel.erb', "#{extract_path}/ppt/_rels/presentation.xml.rels")
