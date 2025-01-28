@@ -73,6 +73,24 @@ Once this is complete, you should be able to run the test suite:
 
     rake
 
+## Development and Testing
+
+For local development and testing, you can use the included script to generate a sample PowerPoint file and inspect its contents:
+
+```bash
+# Make the script executable
+chmod +x bin/generate_ppt.sh
+
+# Run the script
+./bin/generate_ppt.sh
+```
+
+This will:
+1. Generate a test PowerPoint presentation
+2. Save it to the `output/` directory
+3. Unzip the PPTX file into `output/unzipped/` for inspection
+
+The unzipped contents allow you to examine the XML structure and other components of the generated PPTX file, which is useful for debugging and development.
 
 ## Bug Reporting
 
