@@ -3,10 +3,12 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class Intro
-      include Powerpoint::Util
-
+    class Intro < Base
       attr_reader :title, :subtitile
+
+      def layout_name
+        'title'
+      end
 
       def initialize(options={})
         require_arguments [:title, :subtitile], options

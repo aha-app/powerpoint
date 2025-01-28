@@ -5,9 +5,7 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class TextPicSplit
-      include Powerpoint::Util
-
+    class TextPicSplit < Base
       attr_reader :title, :content, :image_name, :image_path, :coords
 
       def initialize(options={})

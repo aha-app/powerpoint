@@ -31,13 +31,13 @@
           <a:lstStyle/>
           <a:p>
             <a:r>
-              <a:rPr dirty="0" lang="en-US" smtClean="0"/>
+              <a:rPr lang="en-US" smtClean="0"/>
               <a:t><%= title %></a:t>
             </a:r>
-            <a:endParaRPr dirty="0" lang="en-US"/>
           </a:p>
         </p:txBody>
       </p:sp>
+      <% if subtitile %>
       <p:sp>
         <p:nvSpPr>
           <p:cNvPr id="3" name="Subtitle 2"/>
@@ -45,7 +45,7 @@
             <a:spLocks noGrp="1"/>
           </p:cNvSpPr>
           <p:nvPr>
-            <p:ph idx="1" type="subTitle"/>
+            <p:ph type="subTitle" idx="1"/>
           </p:nvPr>
         </p:nvSpPr>
         <p:spPr/>
@@ -57,16 +57,11 @@
               <a:rPr lang="en-US" smtClean="0"/>
               <a:t><%= subtitile %></a:t>
             </a:r>
-            <a:endParaRPr lang="en-US"/>
           </a:p>
         </p:txBody>
       </p:sp>
+      <% end %>
     </p:spTree>
-    <p:extLst>
-      <p:ext uri="{BB962C8B-B14F-4D97-AF65-F5344CB8AC3E}">
-        <p14:creationId val="1633108117" xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main"/>
-      </p:ext>
-    </p:extLst>
   </p:cSld>
   <p:clrMapOvr>
     <a:masterClrMapping/>

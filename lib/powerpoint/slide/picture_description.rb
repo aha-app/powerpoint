@@ -5,9 +5,7 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class DescriptionPic
-      include Powerpoint::Util
-
+    class DescriptionPic < Base
       attr_reader :title, :content, :image_name, :image_path, :coords
 
       def initialize(options={})

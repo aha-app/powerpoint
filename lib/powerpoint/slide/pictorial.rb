@@ -5,7 +5,7 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class Pictorial
+    class Pictorial < Base
       include Powerpoint::Util
 
     	attr_reader :image_name, :title, :coords, :image_path
