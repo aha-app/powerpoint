@@ -8,6 +8,10 @@ module Powerpoint
     class DescriptionPic < Base
       attr_reader :title, :content, :image_name, :image_path, :coords
 
+      def layout_name
+        'content'
+      end
+
       def initialize(options={})
         require_arguments [:presentation, :title, :image_path, :content], options
         options.each {|k, v| instance_variable_set("@#{k}", v)}
