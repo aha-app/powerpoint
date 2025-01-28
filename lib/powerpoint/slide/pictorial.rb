@@ -8,9 +8,13 @@ module Powerpoint
     class Pictorial < Base
       include Powerpoint::Util
 
-    	attr_reader :image_name, :title, :coords, :image_path
+      attr_reader :image_name, :title, :coords, :image_path
 
-    	def initialize(options={})
+      def layout_name
+        'content'
+      end
+
+      def initialize(options={})
 				require_arguments [:presentation, :title, :image_path], options
       	options.each {|k, v| instance_variable_set("@#{k}", v)}
         @coords = default_coords unless @coords.any?
