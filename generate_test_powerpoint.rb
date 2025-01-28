@@ -96,9 +96,27 @@ def create_test_powerpoint
   end
 
   # Save the presentation
-  output_path = "test_presentation.pptx"
-  deck.save(output_path)
-  puts "Presentation saved to: #{output_path}"
+  output_dir = "output"
+  output_file = "test_presentation"
+  
+  begin
+    # Ensure output directory exists
+    FileUtils.mkdir_p(output_dir)
+    
+    # Save with base name (PowerPoint gem will append timestamp)
+    saved_path = deck.save("#{output_dir}/#{output_file}")
+    
+    # Rename the file to remove timestamp
+    final_path = "#{output_dir}/#{output_file}.pptx"
+    FileUtils.mv(saved_path, final_path)
+    
+    puts "Presentation saved to: #{final_path}"
+  rescue StandardError => e
+    puts "Error saving presentation: #{e.message}"
+    puts "Stack trace:"
+    puts e.backtrace
+    exit 1
+  end
 end
 
 # Run the test
