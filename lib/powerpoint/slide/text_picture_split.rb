@@ -5,12 +5,10 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class TextPicSplit < Base
-      attr_reader :title, :content, :image_name, :image_path, :coords
+    class TextPicSplit
+      include Powerpoint::Util
 
-      def layout_name
-        'content'
-      end
+      attr_reader :title, :content, :image_name, :image_path, :coords
 
       def initialize(options={})
         require_arguments [:presentation, :title, :image_path, :content], options

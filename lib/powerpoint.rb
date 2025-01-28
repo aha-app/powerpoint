@@ -1,6 +1,5 @@
 require "powerpoint/version"
 require 'powerpoint/util'
-require 'powerpoint/slide/base'
 require 'powerpoint/slide/intro'
 require 'powerpoint/slide/textual'
 require 'powerpoint/slide/pictorial'

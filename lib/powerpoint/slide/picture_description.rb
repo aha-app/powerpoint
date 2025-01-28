@@ -5,12 +5,10 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class DescriptionPic < Base
-      attr_reader :title, :content, :image_name, :image_path, :coords
+    class DescriptionPic
+      include Powerpoint::Util
 
-      def layout_name
-        'content'
-      end
+      attr_reader :title, :content, :image_name, :image_path, :coords
 
       def initialize(options={})
         require_arguments [:presentation, :title, :image_path, :content], options

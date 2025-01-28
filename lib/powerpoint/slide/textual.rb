@@ -3,7 +3,9 @@ require 'erb'
 
 module Powerpoint
   module Slide
-    class Textual < Base
+    class Textual
+      include Powerpoint::Util
+
       attr_reader :title, :content
 
       def initialize(options={})
