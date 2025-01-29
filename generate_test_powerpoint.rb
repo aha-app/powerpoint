@@ -11,6 +11,19 @@ def pixel_to_pt(px)
   px * 12700
 end
 
+module PresentationConstants
+  SLIDE_WIDTH_PX = 720
+  DEFAULT_WIDTH_PX = 550
+  DEFAULT_HEIGHT_PX = 400
+  IMAGE_Y_OFFSET_PX = 120
+
+  SLIDE_WIDTH = pixel_to_pt(SLIDE_WIDTH_PX)
+  DEFAULT_WIDTH = pixel_to_pt(DEFAULT_WIDTH_PX)
+  DEFAULT_HEIGHT = pixel_to_pt(DEFAULT_HEIGHT_PX)
+  IMAGE_Y_OFFSET = pixel_to_pt(IMAGE_Y_OFFSET_PX)
+end
+
+
 def create_test_powerpoint
   # Create a new presentation
   deck = Powerpoint::Presentation.new
@@ -47,10 +60,6 @@ def create_test_powerpoint
   ]
 
   # Add image slides
-  slide_width = pixel_to_pt(720)
-  default_width = pixel_to_pt(550)
-  default_height = pixel_to_pt(400)
-
   image_files.each do |image|
     next unless File.exist?(image[:path])
 
@@ -58,19 +67,19 @@ def create_test_powerpoint
     image_height = pixel_to_pt(image[:height])
 
     # Calculate dimensions
-    if image_height > image_width && image_height > default_height
-      new_height = default_height
+    if image_height > image_width && image_height > PresentationConstants::DEFAULT_HEIGHT
+      new_height = PresentationConstants::DEFAULT_HEIGHT
       ratio = new_height / image_height.to_f
       new_width = (image_width.to_f * ratio).round
     else
-      new_width = default_width < image_width ? default_width : image_width
+      new_width = PresentationConstants::DEFAULT_WIDTH < image_width ? PresentationConstants::DEFAULT_WIDTH : image_width
       ratio = new_width / image_width.to_f
       new_height = (image_height.to_f * ratio).round
     end
 
     coords = {
-      x: (slide_width / 2) - (new_width / 2),
-      y: pixel_to_pt(120),
+      x: (PresentationConstants::SLIDE_WIDTH / 2) - (new_width / 2),
+      y: PresentationConstants::IMAGE_Y_OFFSET,
       cx: new_width,
       cy: new_height
     }
