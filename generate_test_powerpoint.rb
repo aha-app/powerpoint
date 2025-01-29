@@ -7,7 +7,7 @@ end
 
 require 'tempfile'
 
-def pixle_to_pt(px)
+def pixel_to_pt(px)
   px * 12700
 end
 
@@ -47,15 +47,15 @@ def create_test_powerpoint
   ]
 
   # Add image slides
-  slide_width = pixle_to_pt(720)
-  default_width = pixle_to_pt(550)
-  default_height = pixle_to_pt(400)
+  slide_width = pixel_to_pt(720)
+  default_width = pixel_to_pt(550)
+  default_height = pixel_to_pt(400)
 
   image_files.each do |image|
     next unless File.exist?(image[:path])
 
-    image_width = pixle_to_pt(image[:width])
-    image_height = pixle_to_pt(image[:height])
+    image_width = pixel_to_pt(image[:width])
+    image_height = pixel_to_pt(image[:height])
 
     # Calculate dimensions
     if image_height > image_width && image_height > default_height
@@ -70,7 +70,7 @@ def create_test_powerpoint
 
     coords = {
       x: (slide_width / 2) - (new_width / 2),
-      y: pixle_to_pt(120),
+      y: pixel_to_pt(120),
       cx: new_width,
       cy: new_height
     }
