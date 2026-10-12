@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
 
 
-  spec.add_dependency 'rubyzip', '~> 2'
+  spec.add_dependency 'rubyzip', '>= 3.4', '< 4'
   spec.add_dependency 'fastimage', '~> 1'
 end
